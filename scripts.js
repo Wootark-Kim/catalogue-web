@@ -56,21 +56,53 @@ const EAST_LOS_HIGH_POSTER_URL =
 // Creating a list/array of objects of spaceships
 let spaceships = [
     {
-        ip: ,
-        name: ,
+        ip: "alien",
+        name: "USCSS Nostromo"
+        faction: "Weyland-Yutani Corporation"
+        size-length-meters: 334,
     },
     {
-        ip: ,
-        name: ,
+        ip: "deadspace",
+        name: "USG Ishimura"
+        faction: "Concordance Extraction Corporation"
+        size-length-meters: 1600,
     },
     {
-        ip: ,
-        name: ,
+        ip: "warhammer",
+        name: "Macragge's Honor",
+        faction: "Ultramarines"
+        size-length-meters: 26000,
     },
     {
-        ip: ,
-        name: ,
+        ip: "warhammer",
+        name: "Invincible Reason",
+        faction: "Dark Angels"
+        size-length-meters: 28000,
     },
+    {
+        ip: "starwar",
+        name: "Millennium Falcon",
+        faction: "Rebel Alliance"
+        size-length-meters: 26000,
+    },
+    {
+        ip: "starwar",
+        name: "Razor Crest",
+        faction: "Rebel Alliance"
+        size-length-meters: 24.27,
+    },
+    {
+        ip: "starwar",
+        name: "Executor",
+        faction: "Galatic Empire"
+        size-length-meters: ,
+    },
+    {
+        ip: "starwar",
+        name: "Invisible Hand",
+        faction: "Confederacy of Independent Systems"
+        size-length-meters: 1088,
+    }
 ]
 
 // This function adds cards the page to display the data in the array
