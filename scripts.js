@@ -31,67 +31,101 @@ const EAST_LOS_HIGH_POSTER_URL =
   "https://static.wikia.nocookie.net/hulu/images/6/64/East_Los_High.jpg";
 
 // This is an array of strings (TV show titles)
-let titles = [
-  "Fresh Prince of Bel Air",
-  "Curb Your Enthusiasm",
-  "East Los High",
-];
-// Your final submission should have much more data than this, and
-// you should use more than just an array of strings to store it all.
+//let titles = [
+//  "Fresh Prince of Bel Air",
+//  "Curb Your Enthusiasm",
+//  "East Los High",
+//];
+
+/*
+====[Thought process]===================================================================================================
+    Matching each images manually to each titles' element seems awkward. To better scale, I'm going to use an a list
+    of objects instead. This way I can just loop through the list without using a bunch of if-else statements. Plus
+    I get to add more object properties if I want to expand more.
+
+    Note: Instead of movies, I think I want to do something else. Some ideas:
+        - list of resident evil viruses
+        - list of fictional spaceships (Warhammer, Star War, Star Trek, Alien series, etc.)
+        - list of clothing companies and their origins
+
+    Decision: Spaceships. I can add a space background and it'll give some tangent ideas to practice some javascript
+              shenanigans.
+========================================================================================================================
+*/
+
+// Creating a list/array of objects of spaceships
+let spaceships = [
+    {
+        ip: ,
+        name: ,
+    },
+    {
+        ip: ,
+        name: ,
+    },
+    {
+        ip: ,
+        name: ,
+    },
+    {
+        ip: ,
+        name: ,
+    },
+]
 
 // This function adds cards the page to display the data in the array
 function showCards() {
-  const cardContainer = document.getElementById("card-container");
-  cardContainer.innerHTML = "";
-  const templateCard = document.querySelector(".card");
+    const cardContainer = document.getElementById("card-container");
+    cardContainer.innerHTML = "";
+    const templateCard = document.querySelector(".card");
 
-  for (let i = 0; i < titles.length; i++) {
-    let title = titles[i];
+    for (let i = 0; i < titles.length; i++) {
+        let title = titles[i];
 
-    // This part of the code doesn't scale very well! After you add your
-    // own data, you'll need to do something totally different here.
-    let imageURL = "";
-    if (i == 0) {
-      imageURL = FRESH_PRINCE_URL;
-    } else if (i == 1) {
-      imageURL = CURB_POSTER_URL;
-    } else if (i == 2) {
-      imageURL = EAST_LOS_HIGH_POSTER_URL;
+        // This part of the code doesn't scale very well! After you add your
+        // own data, you'll need to do something totally different here.
+        let imageURL = "";
+        if (i == 0) {
+          imageURL = FRESH_PRINCE_URL;
+        } else if (i == 1) {
+          imageURL = CURB_POSTER_URL;
+        } else if (i == 2) {
+          imageURL = EAST_LOS_HIGH_POSTER_URL;
+        }
+
+        const nextCard = templateCard.cloneNode(true); // Copy the template card
+        editCardContent(nextCard, title, imageURL); // Edit title and image
+        cardContainer.appendChild(nextCard); // Add new card to the container
     }
-
-    const nextCard = templateCard.cloneNode(true); // Copy the template card
-    editCardContent(nextCard, title, imageURL); // Edit title and image
-    cardContainer.appendChild(nextCard); // Add new card to the container
-  }
 }
 
 function editCardContent(card, newTitle, newImageURL) {
-  card.style.display = "block";
+    card.style.display = "block";
 
-  const cardHeader = card.querySelector("h2");
-  cardHeader.textContent = newTitle;
+    const cardHeader = card.querySelector("h2");
+    cardHeader.textContent = newTitle;
 
-  const cardImage = card.querySelector("img");
-  cardImage.src = newImageURL;
-  cardImage.alt = newTitle + " Poster";
+    const cardImage = card.querySelector("img");
+    cardImage.src = newImageURL;
+    cardImage.alt = newTitle + " Poster";
 
-  // You can use console.log to help you debug!
-  // View the output by right clicking on your website,
-  // select "Inspect", then click on the "Console" tab
-  console.log("new card:", newTitle, "- html: ", card);
+    // You can use console.log to help you debug!
+    // View the output by right clicking on your website,
+    // select "Inspect", then click on the "Console" tab
+    console.log("new card:", newTitle, "- html: ", card);
 }
 
 // This calls the addCards() function when the page is first loaded
 document.addEventListener("DOMContentLoaded", showCards);
 
 function quoteAlert() {
-  console.log("Button Clicked!");
-  alert(
+    console.log("Button Clicked!");
+    alert(
     "I guess I can kiss heaven goodbye, because it got to be a sin to look this good!",
-  );
+    );
 }
 
 function removeLastCard() {
-  titles.pop(); // Remove last item in titles array
-  showCards(); // Call showCards again to refresh
+    titles.pop(); // Remove last item in titles array
+    showCards(); // Call showCards again to refresh
 }
