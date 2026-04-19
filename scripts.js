@@ -83,7 +83,7 @@ let spaceships = [
         ip: "starwar",
         name: "Millennium Falcon",
         faction: "Rebel Alliance"
-        size-length-meters: 26000,
+        size-length-meters: 34.75,
     },
     {
         ip: "starwar",
@@ -95,7 +95,7 @@ let spaceships = [
         ip: "starwar",
         name: "Executor",
         faction: "Galatic Empire"
-        size-length-meters: ,
+        size-length-meters: 19000,
     },
     {
         ip: "starwar",
