@@ -65,21 +65,21 @@
 // Creating a list/array of objects of spaceships
 let spaceships = [
     {
-        ip: "alien",
+        ip: "Alien",
         name: "USCSS Nostromo",
         image: "./img/usccnostromo.png",
         faction: "Weyland-Yutani Corporation",
         sizeLengthMeters: 334
     },
     {
-        ip: "deadspace",
+        ip: "Dead Space",
         name: "USG Ishimura",
         image: "./img/usg_ishimura.png",
         faction: "Concordance Extraction Corporation",
         sizeLengthMeters: 1600
     },
     {
-        ip: "warhammer",
+        ip: "Warhammer 40k",
         name: "Macragge's Honor",
         image: "./img/macragge_honour.png",
         faction: "Ultramarines",
@@ -128,7 +128,7 @@ function showCards() {
     for (let i = 0; i < spaceships.length; i++){
         const spaceship = spaceships[i];
         const nextCard = templateCard.cloneNode(true); // Copy the template card
-        editCardContent(nextCard, spaceship.name, spaceship.image); // Edit title and image
+        editCardContent(nextCard, spaceship.name, spaceship.image, spaceship.ip, spaceship.faction, spaceship.sizeLengthMeters); // Edit title and image
         cardContainer.appendChild(nextCard); // Add new card to the container
     }
 
@@ -152,7 +152,7 @@ function showCards() {
 //    }
 }
 
-function editCardContent(card, newTitle, newImageURL) {
+function editCardContent(card, newTitle, newImageURL, newIp, newFaction, newSizeLengthMeters) {
     card.style.display = "block";
 
     const cardHeader = card.querySelector("h2");
@@ -161,6 +161,15 @@ function editCardContent(card, newTitle, newImageURL) {
     const cardImage = card.querySelector("img");
     cardImage.src = newImageURL;
     cardImage.alt = newTitle + " Poster";
+
+    const cardIp = card.querySelector("#ip");
+    cardIp.textContent = "IP: " + newIp;
+
+    const cardFaction = card.querySelector("#faction");
+    cardFaction.textContent = "Faction: " + newFaction;
+
+    const cardSizeLengthMeters = card.querySelector("#sizeLengthMeters");
+    cardSizeLengthMeters.textContent = "Size (length): " + newSizeLengthMeters + " meters";
 
     // You can use console.log to help you debug!
     // View the output by right clicking on your website,

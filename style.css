@@ -30,7 +30,7 @@ body {
     width: 300px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    border-color: #00CF21;
+    border-color: #006300;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     margin: 20px;
     background-color: #1F1F1F
@@ -75,4 +75,8 @@ button {
   font-size: 22px;
   cursor: pointer;
   margin: 5px;
+}
+
+li {
+    margin-bottom: 10px;
 }
