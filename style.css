@@ -2,11 +2,14 @@ html,
 body {
   margin: 0;
   padding: 0;
+  background-color: black;
 }
 
+/*====[HEADER AREA]===================================================================================================*/
 .main-header {
   /* background-color: rgba(0, 0, 0, 0.3); */
-  background-color: #383737;
+  /* background-color: #383737; */
+  background-color: black;
   padding-bottom: 10px;
 }
 
@@ -22,9 +25,18 @@ body {
     padding: 30px;
 }
 
+#filter-area {
+    display: flex;
+    justify-content: center;
+    color: #00CF21;
+    gap: 10px;
+}
+
+/*====[CARD AREA]=====================================================================================================*/
 #card-container {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap; /* allows cards to move to the next row if there's not enough space */
     margin: 0px;
     padding: 30px;
     background-color: black;
@@ -67,7 +79,8 @@ body {
 .footer {
   display: flex;
   justify-content: center;
-  background-color: rgba(0, 0, 0, 0.3);
+  /* background-color: rgba(0, 0, 0, 0.3); */
+  background-color: black;
   padding: 10px;
 }
 

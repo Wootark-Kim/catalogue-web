@@ -57,7 +57,12 @@
 ====[Image Sources]=====================================================================================================
     USCUSS Nostromo: https://static.wikia.nocookie.net/avp/images/c/c5/Img4.jpg/revision/latest?cb=20131021025529
     USG Ishimura: https://www.reddit.com/media?url=https%3A%2F%2Fi.redd.it%2Flefu1g2o4eja1.jpg
-    Macragge's Honor: https://static.wikia.nocookie.net/warhammer40k/images/3/39/BGA_2_-_Macragge%27s_Hononr.png/revision/latest?cb=20180128034619
+    Macragge's Honor: https://1d6chan.miraheze.org/wiki/Macragge%27s_Honour#/media/File:MacraggesHonourBFG2.jpg
+    Invincible Reason: https://www.deviantart.com/hexanity/art/The-invincible-reason-Dark-Angels-flagship-1239785624
+    Millennium Falcon: https://www.popularmechanics.com/culture/movies/a30210061/history-of-the-millennium-falcon/
+    Razor Crest: https://jediinsider.com/275-24178#gsc.tab=0
+    Executor: https://starwars.fandom.com/wiki/Executor?file=Executor_BF2.png
+    Invisible Hand: https://starwars.fandom.com/wiki/Invisible_Hand?file=InvisibleHandROTS.png
 ========================================================================================================================
 */
 
@@ -85,37 +90,41 @@ let spaceships = [
         faction: "Ultramarines",
         sizeLengthMeters: 26000
     },
-//    {
-//        ip: "warhammer",
-//        name: "Invincible Reason",
-//        image: "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/9089cf60-7a39-47c6-8e1d-30badd99f166/dki4wpk-8f61e8ae-74f6-4aed-a988-c76b2b42d161.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiIvZi85MDg5Y2Y2MC03YTM5LTQ3YzYtOGUxZC0zMGJhZGQ5OWYxNjYvZGtpNHdway04ZjYxZThhZS03NGY2LTRhZWQtYTk4OC1jNzZiMmI0MmQxNjEuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.niwTo96ulPCFjTQC9oXAU1Arr-6UvhikWL2D_6D9Smc",
-//        faction: "Dark Angels",
-//        sizeLengthMeters: 28000
-//    },
-//    {
-//        ip: "starwar",
-//        name: "Millennium Falcon",
-//        faction: "Rebel Alliance",
-//        sizeLengthMeters: 34.75
-//    },
-//    {
-//        ip: "starwar",
-//        name: "Razor Crest",
-//        faction: "Rebel Alliance"
-//        sizeLengthMeters: 24.27
-//    },
-//    {
-//        ip: "starwar",
-//        name: "Executor",
-//        faction: "Galatic Empire"
-//        sizeLengthMeters: 19000
-//    },
-//    {
-//        ip: "starwar",
-//        name: "Invisible Hand",
-//        faction: "Confederacy of Independent Systems"
-//        sizeLengthMeters: 1088
-//    }
+    {
+        ip: "Warhammer 40k",
+        name: "Invincible Reason",
+        image: "./img/invincible_reason.png",
+        faction: "Dark Angels",
+        sizeLengthMeters: 28000
+    },
+    {
+        ip: "Star Wars",
+        name: "Millennium Falcon",
+        image: "./img/millennium_falcon.png",
+        faction: "Rebel Alliance",
+        sizeLengthMeters: 34.75
+    },
+    {
+        ip: "Star Wars",
+        name: "Razor Crest",
+        image: "./img/razor_crest.png",
+        faction: "Rebel Alliance",
+        sizeLengthMeters: 24.27
+    },
+    {
+        ip: "Star Wars",
+        name: "Executor",
+        image: "./img/executor.png",
+        faction: "Galatic Empire",
+        sizeLengthMeters: 19000
+    },
+    {
+        ip: "Star Wars",
+        name: "Invisible Hand",
+        image: "./img/invisible_hand.png",
+        faction: "Confederacy of Independent Systems",
+        sizeLengthMeters: 1088
+    }
 ]
 
 // This function adds cards the page to display the data in the array
@@ -124,33 +133,42 @@ function showCards() {
     cardContainer.innerHTML = "";
     const templateCard = document.querySelector(".card");
 
-    // My version:
+    // My modified version:
     for (let i = 0; i < spaceships.length; i++){
         const spaceship = spaceships[i];
         const nextCard = templateCard.cloneNode(true); // Copy the template card
         editCardContent(nextCard, spaceship.name, spaceship.image, spaceship.ip, spaceship.faction, spaceship.sizeLengthMeters); // Edit title and image
         cardContainer.appendChild(nextCard); // Add new card to the container
     }
-
-    // What was given:
-//    for (let i = 0; i < titles.length; i++) {
-//        let title = titles[i];
-//
-//        // This part of the code doesn't scale very well! After you add your
-//        // own data, you'll need to do something totally different here.
-//        let imageURL = "";
-//        if (i == 0) {
-//          imageURL = FRESH_PRINCE_URL;
-//        } else if (i == 1) {
-//          imageURL = CURB_POSTER_URL;
-//        } else if (i == 2) {
-//          imageURL = EAST_LOS_HIGH_POSTER_URL;
-//        }
-//        const nextCard = templateCard.cloneNode(true); // Copy the template card
-//        editCardContent(nextCard, title, imageURL); // Edit title and image
-//        cardContainer.appendChild(nextCard); // Add new card to the container
-//    }
 }
+
+/*
+====[Thought process]===================================================================================================
+    What am I doing here?
+    Answer: I'm attempting to avoid hard coding every ip (from the array object' property "ip") into the the "selectIP"
+            drop down menu. Instead I'm trying to auto populate based on what the "spaceships" array contains.
+========================================================================================================================
+*/
+
+const select = document.getElementById("selectIP");
+const uniqueIPs = [];   // setting up an empty array in order to for-loop through the "spaceships" array and add in every unique ip property values that are found
+
+// for-loop through the "spaceships" array and add in every unique ip property values that are found to the uniqueIPs array
+for (let i=0; i < spaceships.length; i++){
+    let ip = spaceships[i].ip;
+    if (!uniqueIPs.includes(ip)){ // personal note: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/includes
+        uniqueIPs.push(ip);
+    }
+}
+
+uniqueIPs.forEach(function(ip) {
+    const option = document.createElement("option");
+    option.value = ip;
+    option.textContent = ip;
+    select.appendChild(option);
+});
+
+//======================================================================================================================
 
 function editCardContent(card, newTitle, newImageURL, newIp, newFaction, newSizeLengthMeters) {
     card.style.display = "block";

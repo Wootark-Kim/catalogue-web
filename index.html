@@ -4,7 +4,6 @@
         <title>LA TV Shows | Home</title>
         <meta name="description" content="A Catalog of Shows Set in Los Angeles" />
         <link rel="stylesheet" href="style.css" />
-        <script type="text/javascript" src="scripts.js"></script>
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,6 +15,15 @@
     <body>
         <header class="main-header">
             <h1 class="title">Spaceship Compendium</h1>
+
+            <div id="filter-area">
+                <label for="selectIP"> Filter by IP </label>
+
+                <select id="selectIP">
+
+                </select>
+
+            </div>>
         </header>
 
         <div id="card-container">
@@ -41,5 +49,7 @@
             <button onclick="quoteAlert()">Get A Quote!</button>
             <button onclick="removeLastCard()">Remove A Card!</button>
         </div>
+
+        <script type="text/javascript" src="scripts.js"></script>
     </body>
 </html>
