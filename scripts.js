@@ -55,14 +55,19 @@
 
 /*
 ====[Image Sources]=====================================================================================================
-    USCUSS Nostromo: https://static.wikia.nocookie.net/avp/images/c/c5/Img4.jpg/revision/latest?cb=20131021025529
+    Callisto: https://i.sstatic.net/D6umk.jpg
+    USCSS Nostromo: https://static.wikia.nocookie.net/avp/images/c/c5/Img4.jpg/revision/latest?cb=20131021025529
+    USCSS Prometheus: https://www.space.com/15919-prometheus-alien-movie-pictures.html
     USG Ishimura: https://www.reddit.com/media?url=https%3A%2F%2Fi.redd.it%2Flefu1g2o4eja1.jpg
+    USM Valor: https://deadspace.fandom.com/wiki/USM_Valor?file=DSR_USM_Valor.jpg
     Macragge's Honor: https://1d6chan.miraheze.org/wiki/Macragge%27s_Honour#/media/File:MacraggesHonourBFG2.jpg
     Invincible Reason: https://www.deviantart.com/hexanity/art/The-invincible-reason-Dark-Angels-flagship-1239785624
     Millennium Falcon: https://www.popularmechanics.com/culture/movies/a30210061/history-of-the-millennium-falcon/
     Razor Crest: https://jediinsider.com/275-24178#gsc.tab=0
     Executor: https://starwars.fandom.com/wiki/Executor?file=Executor_BF2.png
     Invisible Hand: https://starwars.fandom.com/wiki/Invisible_Hand?file=InvisibleHandROTS.png
+    The Aeriolus: https://archive.org/details/triptomars00ross/page/84/mode/2up
+    ISV: https://cdn.mos.cms.futurecdn.net/SDKY7nw9PAuqXKxi87W6PK-970-80.jpg.webp
 ========================================================================================================================
 */
 
@@ -77,11 +82,46 @@ let spaceships = [
         sizeLengthMeters: 334
     },
     {
+        ip: "Alien",
+        name: "USCSS Prometheus",
+        image: "./img/uscss_prometheus.png",
+        faction: "Weyland-Yutani Corporation",
+        sizeLengthMeters: 130
+    },
+    {
+        ip: "Public Domain",
+        name: "Aeriolus",
+        image: "./img/the_aeriolus.png",
+        faction: "Rubeus and Marchy",
+        sizeLengthMeters: 100
+    },
+    {
+        ip: "Public Domain",
+        name: "Callisto",
+        image: "./img/callisto.png",
+        faction: "Unified Earth Government",
+        sizeLengthMeters: 80
+    },
+    {
         ip: "Dead Space",
         name: "USG Ishimura",
         image: "./img/usg_ishimura.png",
         faction: "Concordance Extraction Corporation",
         sizeLengthMeters: 1600
+    },
+    {
+        ip: "Dead Space",
+        name: "USM Valor",
+        image: "./img/usm_valor.png",
+        faction: "Earth Government Colonial Alliance",
+        sizeLengthMeters: 320
+    },
+    {
+        ip: "Avatar",
+        name: "Interstellar Vehicle Venture Star (ISV)",
+        image: "./img/isv.png",
+        faction: "Resources Development Administration",
+        sizeLengthMeters: 330
     },
     {
         ip: "Warhammer 40k",
@@ -127,15 +167,46 @@ let spaceships = [
     }
 ]
 
+/*
+====[Thought process]===================================================================================================
+    What am I doing here? (the codeblock shown below)
+    Answer: I modified the given showCards() function so that there is an added filter option as well. I wanted
+            users to be able to have cards of spaceships shown based on selected IP or size preference.
+========================================================================================================================
+*/
+
 // This function adds cards the page to display the data in the array
 function showCards() {
     const cardContainer = document.getElementById("card-container");
     cardContainer.innerHTML = "";
     const templateCard = document.querySelector(".card");
 
+    // relevant for when the user selects an IP and size in the filter drop down menu
+    const selectedIP = document.getElementById("selectIP").value;
+    const selectedSize = document.getElementById("selectSize").value;
+
+    let filteredShips = spaceships; // making a same reference so I can apply a filter to spaceships later
+
+    // filter by IP first
+    if (selectedIP !== "show all IPs"){
+        // personal note: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter
+        filteredShips = spaceships.filter(function(ship) {
+            return ship.ip == selectedIP;
+        });
+    }
+
+    // next, I can filter by size
+    if (selectedSize == "smallest to largest"){
+        filteredShips.sort(sortSmallestToLargest);
+    }
+
+    if (selectedSize == "largest to smallest"){
+        filteredShips.sort(sortLargestToSmallest);
+    }
+
     // My modified version:
-    for (let i = 0; i < spaceships.length; i++){
-        const spaceship = spaceships[i];
+    for (let i = 0; i < filteredShips.length; i++){
+        const spaceship = filteredShips[i];
         const nextCard = templateCard.cloneNode(true); // Copy the template card
         editCardContent(nextCard, spaceship.name, spaceship.image, spaceship.ip, spaceship.faction, spaceship.sizeLengthMeters); // Edit title and image
         cardContainer.appendChild(nextCard); // Add new card to the container
@@ -144,7 +215,7 @@ function showCards() {
 
 /*
 ====[Thought process]===================================================================================================
-    What am I doing here?
+    What am I doing here? (the codeblock shown below)
     Answer: I'm attempting to avoid hard coding every ip (from the array object' property "ip") into the the "selectIP"
             drop down menu. Instead I'm trying to auto populate based on what the "spaceships" array contains.
 ========================================================================================================================
@@ -161,6 +232,10 @@ for (let i=0; i < spaceships.length; i++){
     }
 }
 
+// this will sort all the dropdown options in an alphabetical order
+uniqueIPs.sort();
+
+// run a function to create a drop down option for each element in the array "uniqueIPs"
 uniqueIPs.forEach(function(ip) {
     const option = document.createElement("option");
     option.value = ip;
@@ -198,6 +273,12 @@ function editCardContent(card, newTitle, newImageURL, newIp, newFaction, newSize
 // This calls the addCards() function when the page is first loaded
 document.addEventListener("DOMContentLoaded", showCards);
 
+// This will load the new set of cards once an IP filter has been chosen
+document.getElementById("selectIP").addEventListener("change", showCards);
+
+// This will load the new set of cards once a size filter has been chosen
+document.getElementById("selectSize").addEventListener("change", showCards);
+
 function quoteAlert() {
     console.log("Button Clicked!");
     alert(
@@ -206,6 +287,16 @@ function quoteAlert() {
 }
 
 function removeLastCard() {
-    titles.pop(); // Remove last item in titles array
+    spaceships.pop(); // Remove last item in titles array
     showCards(); // Call showCards again to refresh
+}
+
+// used in size filtering
+function sortSmallestToLargest(a,b){
+    return a.sizeLengthMeters - b.sizeLengthMeters;
+}
+
+// used in size filtering
+function sortLargestToSmallest(a,b){
+    return b.sizeLengthMeters - a.sizeLengthMeters;
 }

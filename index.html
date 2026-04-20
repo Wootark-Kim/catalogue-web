@@ -16,13 +16,27 @@
         <header class="main-header">
             <h1 class="title">Spaceship Compendium</h1>
 
+            <div id="header-description">
+                From the debuted "Callisto" in 1893 to the fantastical imaginings of modern films such as Star Wars and Avatar,
+                explore the creative vehicles of space explorations!
+            </div>
+
             <div id="filter-area">
-                <label for="selectIP"> Filter by IP </label>
+                <div class="filter-type">
+                    <label for="selectIP"> Filter by IP </label>
+                    <select id="selectIP">
+                        <option> show all IPs </option>
+                        <!-- gets autopopulated by the uniqueIP function -->
+                    </select>
+                </div>
 
-                <select id="selectIP">
-
-                </select>
-
+                <div class="filter-type">
+                    <label for="selectSize"> Order by size </label>
+                    <select id="selectSize">
+                        <option> smallest to largest </option>
+                        <option> largest to smallest </option>
+                    </select>
+                </div>
             </div>>
         </header>
 

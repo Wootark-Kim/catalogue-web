@@ -9,8 +9,20 @@ body {
 .main-header {
   /* background-color: rgba(0, 0, 0, 0.3); */
   /* background-color: #383737; */
-  background-color: black;
-  padding-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-color: black;
+    padding-bottom: 10px;
+}
+
+#header-description {
+    font-size: clamp(10px, 3vw, 17px);
+    text-align: center;
+    color: #00CF21;
+    padding-bottom: 50px;
+    width: clamp(100px, 50vw, 500px);
+    margin: 0 auto; /* the auto margin will center the container visually in the middle */
 }
 
 .title {
@@ -29,6 +41,11 @@ body {
     display: flex;
     justify-content: center;
     color: #00CF21;
+    gap: 40px;
+}
+
+.filter-type{
+    display: flex;
     gap: 10px;
 }
 
