@@ -23,13 +23,13 @@
  *
  */
 
-const FRESH_PRINCE_URL =
-  "https://upload.wikimedia.org/wikipedia/en/3/33/Fresh_Prince_S1_DVD.jpg";
-const CURB_POSTER_URL =
-  "https://m.media-amazon.com/images/M/MV5BZDY1ZGM4OGItMWMyNS00MDAyLWE2Y2MtZTFhMTU0MGI5ZDFlXkEyXkFqcGdeQXVyMDc5ODIzMw@@._V1_FMjpg_UX1000_.jpg";
-const EAST_LOS_HIGH_POSTER_URL =
-  "https://static.wikia.nocookie.net/hulu/images/6/64/East_Los_High.jpg";
-
+//const FRESH_PRINCE_URL =
+//  "https://upload.wikimedia.org/wikipedia/en/3/33/Fresh_Prince_S1_DVD.jpg";
+//const CURB_POSTER_URL =
+//  "https://m.media-amazon.com/images/M/MV5BZDY1ZGM4OGItMWMyNS00MDAyLWE2Y2MtZTFhMTU0MGI5ZDFlXkEyXkFqcGdeQXVyMDc5ODIzMw@@._V1_FMjpg_UX1000_.jpg";
+//const EAST_LOS_HIGH_POSTER_URL =
+//  "https://static.wikia.nocookie.net/hulu/images/6/64/East_Los_High.jpg";
+//
 // This is an array of strings (TV show titles)
 //let titles = [
 //  "Fresh Prince of Bel Air",
@@ -53,56 +53,69 @@ const EAST_LOS_HIGH_POSTER_URL =
 ========================================================================================================================
 */
 
+/*
+====[Image Sources]=====================================================================================================
+    USCUSS Nostromo: https://static.wikia.nocookie.net/avp/images/c/c5/Img4.jpg/revision/latest?cb=20131021025529
+    USG Ishimura: https://www.reddit.com/media?url=https%3A%2F%2Fi.redd.it%2Flefu1g2o4eja1.jpg
+    Macragge's Honor: https://static.wikia.nocookie.net/warhammer40k/images/3/39/BGA_2_-_Macragge%27s_Hononr.png/revision/latest?cb=20180128034619
+========================================================================================================================
+*/
+
+
 // Creating a list/array of objects of spaceships
 let spaceships = [
     {
         ip: "alien",
-        name: "USCSS Nostromo"
-        faction: "Weyland-Yutani Corporation"
-        size-length-meters: 334,
+        name: "USCSS Nostromo",
+        image: "./img/usccnostromo.png",
+        faction: "Weyland-Yutani Corporation",
+        sizeLengthMeters: 334
     },
     {
         ip: "deadspace",
-        name: "USG Ishimura"
-        faction: "Concordance Extraction Corporation"
-        size-length-meters: 1600,
+        name: "USG Ishimura",
+        image: "./img/usg_ishimura.png",
+        faction: "Concordance Extraction Corporation",
+        sizeLengthMeters: 1600
     },
     {
         ip: "warhammer",
         name: "Macragge's Honor",
-        faction: "Ultramarines"
-        size-length-meters: 26000,
+        image: "./img/macragge_honour.png",
+        faction: "Ultramarines",
+        sizeLengthMeters: 26000
     },
-    {
-        ip: "warhammer",
-        name: "Invincible Reason",
-        faction: "Dark Angels"
-        size-length-meters: 28000,
-    },
-    {
-        ip: "starwar",
-        name: "Millennium Falcon",
-        faction: "Rebel Alliance"
-        size-length-meters: 34.75,
-    },
-    {
-        ip: "starwar",
-        name: "Razor Crest",
-        faction: "Rebel Alliance"
-        size-length-meters: 24.27,
-    },
-    {
-        ip: "starwar",
-        name: "Executor",
-        faction: "Galatic Empire"
-        size-length-meters: 19000,
-    },
-    {
-        ip: "starwar",
-        name: "Invisible Hand",
-        faction: "Confederacy of Independent Systems"
-        size-length-meters: 1088,
-    }
+//    {
+//        ip: "warhammer",
+//        name: "Invincible Reason",
+//        image: "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/9089cf60-7a39-47c6-8e1d-30badd99f166/dki4wpk-8f61e8ae-74f6-4aed-a988-c76b2b42d161.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiIvZi85MDg5Y2Y2MC03YTM5LTQ3YzYtOGUxZC0zMGJhZGQ5OWYxNjYvZGtpNHdway04ZjYxZThhZS03NGY2LTRhZWQtYTk4OC1jNzZiMmI0MmQxNjEuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.niwTo96ulPCFjTQC9oXAU1Arr-6UvhikWL2D_6D9Smc",
+//        faction: "Dark Angels",
+//        sizeLengthMeters: 28000
+//    },
+//    {
+//        ip: "starwar",
+//        name: "Millennium Falcon",
+//        faction: "Rebel Alliance",
+//        sizeLengthMeters: 34.75
+//    },
+//    {
+//        ip: "starwar",
+//        name: "Razor Crest",
+//        faction: "Rebel Alliance"
+//        sizeLengthMeters: 24.27
+//    },
+//    {
+//        ip: "starwar",
+//        name: "Executor",
+//        faction: "Galatic Empire"
+//        sizeLengthMeters: 19000
+//    },
+//    {
+//        ip: "starwar",
+//        name: "Invisible Hand",
+//        faction: "Confederacy of Independent Systems"
+//        sizeLengthMeters: 1088
+//    }
 ]
 
 // This function adds cards the page to display the data in the array
@@ -111,24 +124,32 @@ function showCards() {
     cardContainer.innerHTML = "";
     const templateCard = document.querySelector(".card");
 
-    for (let i = 0; i < titles.length; i++) {
-        let title = titles[i];
-
-        // This part of the code doesn't scale very well! After you add your
-        // own data, you'll need to do something totally different here.
-        let imageURL = "";
-        if (i == 0) {
-          imageURL = FRESH_PRINCE_URL;
-        } else if (i == 1) {
-          imageURL = CURB_POSTER_URL;
-        } else if (i == 2) {
-          imageURL = EAST_LOS_HIGH_POSTER_URL;
-        }
-
+    // My version:
+    for (let i = 0; i < spaceships.length; i++){
+        const spaceship = spaceships[i];
         const nextCard = templateCard.cloneNode(true); // Copy the template card
-        editCardContent(nextCard, title, imageURL); // Edit title and image
+        editCardContent(nextCard, spaceship.name, spaceship.image); // Edit title and image
         cardContainer.appendChild(nextCard); // Add new card to the container
     }
+
+    // What was given:
+//    for (let i = 0; i < titles.length; i++) {
+//        let title = titles[i];
+//
+//        // This part of the code doesn't scale very well! After you add your
+//        // own data, you'll need to do something totally different here.
+//        let imageURL = "";
+//        if (i == 0) {
+//          imageURL = FRESH_PRINCE_URL;
+//        } else if (i == 1) {
+//          imageURL = CURB_POSTER_URL;
+//        } else if (i == 2) {
+//          imageURL = EAST_LOS_HIGH_POSTER_URL;
+//        }
+//        const nextCard = templateCard.cloneNode(true); // Copy the template card
+//        editCardContent(nextCard, title, imageURL); // Edit title and image
+//        cardContainer.appendChild(nextCard); // Add new card to the container
+//    }
 }
 
 function editCardContent(card, newTitle, newImageURL) {

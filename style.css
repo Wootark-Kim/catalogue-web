@@ -19,33 +19,41 @@ body {
 }
 
 #card-container {
-  display: flex;
-  justify-content: center;
-  margin: 20px;
+    display: flex;
+    justify-content: center;
+    margin: 0px;
+    padding: 30px;
+    background-color: black;
 }
 
 .card {
-  width: 300px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  margin: 5px;
+    width: 300px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    border-color: #00CF21;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+    background-color: #1F1F1F
 }
 
 .card-content {
-  padding: 20px;
-  font-family: "Verdana";
-  color: #777;
+    padding: 20px;
+    font-family: "Verdana";
+    color: #00CF21;
 }
 
+/* refers to the ship title of the card*/
 .card-content h2 {
   margin-top: 0;
   font-size: 20px;
 }
 
 .card img {
-  width: 100%;
-  height: auto;
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    border: 2px solid #ccc;
+    border-color: black;
 }
 
 .footer {
