@@ -90,6 +90,7 @@ let spaceships = [
         ip: "Alien",
         name: "USCSS Nostromo",
         image: "./img/usccnostromo.png",
+        year: "1979",
         faction: "Weyland-Yutani Corporation",
         sizeLengthMeters: 334,
         saved: false
@@ -98,6 +99,7 @@ let spaceships = [
         ip: "Alien",
         name: "USCSS Prometheus",
         image: "./img/uscss_prometheus.png",
+        year: "2012",
         faction: "Weyland-Yutani Corporation",
         sizeLengthMeters: 130,
         saved: false
@@ -106,14 +108,16 @@ let spaceships = [
         ip: "Alien",
         name: "USM Auriga",
         image: "./img/usm_auriga.png",
+        year: "1997",
         faction: "United Systems Military (U.S.M.)",
-        sizeLengthMeters: 3658,
+        sizeLengthMeters: 2658,
         saved: false
     },
     {
         ip: "Alien",
         name: "USS Sulaco",
         image: "./img/uss_sulaco.png",
+        year: "1986",
         faction: "United States Colonial Marine Corps",
         sizeLengthMeters: 385,
         saved: false
@@ -122,6 +126,7 @@ let spaceships = [
         ip: "Public Domain",
         name: "Aeriolus",
         image: "./img/the_aeriolus.png",
+        year: "1920",
         faction: "Rubeus and Marchy",
         sizeLengthMeters: 100,
         saved: false
@@ -130,6 +135,7 @@ let spaceships = [
         ip: "Public Domain",
         name: "Callisto",
         image: "./img/callisto.png",
+        year: "1894",
         faction: "Unified Earth Government",
         sizeLengthMeters: 80,
         saved: false
@@ -138,6 +144,7 @@ let spaceships = [
         ip: "Dead Space",
         name: "USG Ishimura",
         image: "./img/usg_ishimura.png",
+        year: "2008",
         faction: "Concordance Extraction Corporation",
         sizeLengthMeters: 1600,
         saved: false
@@ -146,6 +153,7 @@ let spaceships = [
         ip: "Dead Space",
         name: "USM Valor",
         image: "./img/usm_valor.png",
+        year: "2008",
         faction: "Earth Government Colonial Alliance",
         sizeLengthMeters: 320,
         saved: false
@@ -154,14 +162,16 @@ let spaceships = [
         ip: "Avatar",
         name: "Interstellar Vehicle Venture Star (ISV)",
         image: "./img/isv.png",
+        year: "2009",
         faction: "Resources Development Administration",
-        sizeLengthMeters: 330,
+        sizeLengthMeters: 1646,
         saved: false
     },
     {
         ip: "Warhammer 40k",
         name: "Macragge's Honor",
         image: "./img/macragge_honour.png",
+        year: "2013",
         faction: "Ultramarines",
         sizeLengthMeters: 26000,
         saved: false
@@ -170,6 +180,7 @@ let spaceships = [
         ip: "Warhammer 40k",
         name: "Invincible Reason",
         image: "./img/invincible_reason.png",
+        year: "2008",
         faction: "Dark Angels",
         sizeLengthMeters: 28000,
         saved: false
@@ -178,6 +189,7 @@ let spaceships = [
         ip: "Star Trek",
         name: "USS Defiant",
         image: "./img/uss_defiant.png",
+        year: "1994",
         faction: "United Federation of Planets",
         sizeLengthMeters: 170,
         saved: false
@@ -186,14 +198,16 @@ let spaceships = [
         ip: "Star Trek",
         name: "USS Enterprise",
         image: "./img/uss_enterprise.png",
+        year: "1966",
         faction: "United Federation of Planets",
-        sizeLengthMeters: 342,
+        sizeLengthMeters: 350,
         saved: false
     },
     {
         ip: "Star Trek",
         name: "USS Excelsior",
         image: "./img/uss_excelsior.png",
+        year: "1984",
         faction: "United Federation of Planets",
         sizeLengthMeters: 467,
         saved: false
@@ -202,14 +216,16 @@ let spaceships = [
         ip: "Star Trek",
         name: "USS Voyager",
         image: "./img/uss_voyager.png",
+        year: "1995",
         faction: "United Federation of Planets",
-        sizeLengthMeters: 344,
+        sizeLengthMeters: 343,
         saved: false
     },
     {
         ip: "Star Wars",
         name: "Devastator",
         image: "./img/devastator.png",
+        year: "1977",
         faction: "Galatic Empire",
         sizeLengthMeters: 1600,
         saved: false
@@ -218,14 +234,16 @@ let spaceships = [
         ip: "Star Wars",
         name: "Millennium Falcon",
         image: "./img/millennium_falcon.png",
+        year: "1977",
         faction: "Rebel Alliance",
-        sizeLengthMeters: 34.75,
+        sizeLengthMeters: 34.52,
         saved: false
     },
     {
         ip: "Star Wars",
         name: "Razor Crest",
         image: "./img/razor_crest.png",
+        year: "2019",
         faction: "Rebel Alliance",
         sizeLengthMeters: 24.27,
         saved: false
@@ -234,6 +252,7 @@ let spaceships = [
         ip: "Star Wars",
         name: "Executor",
         image: "./img/executor.png",
+        year: "1980",
         faction: "Galatic Empire",
         sizeLengthMeters: 19000,
         saved: false
@@ -242,6 +261,7 @@ let spaceships = [
         ip: "Star Wars",
         name: "Invisible Hand",
         image: "./img/invisible_hand.png",
+        year: "2005",
         faction: "Confederacy of Independent Systems",
         sizeLengthMeters: 1088,
         saved: false
@@ -372,6 +392,7 @@ function editCardContent(card, spaceship) {
 */
     card.querySelector("h2").textContent = spaceship.name;
     card.querySelector("img").src = spaceship.image;
+    card.querySelector("#year").textContent = "Year Debuted: " + spaceship.year;
     card.querySelector("#ip").textContent = "IP: " + spaceship.ip;
     card.querySelector("#faction").textContent = "Faction: " + spaceship.faction;
     card.querySelector("#sizeLengthMeters").textContent = "Size (length): " + spaceship.sizeLengthMeters + " meters";
@@ -421,7 +442,7 @@ function saveToggle(spaceship){
     spaceship.saved = !spaceship.saved;
 }
 
-const creditButton = document.getElementById("credit-button");
+const creditButton = document.querySelector(".credit-button");
 const closeCreditButton = document.getElementById("close-pop-up");
 const popUp = document.getElementById("pop-up");
 
