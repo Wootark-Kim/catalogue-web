@@ -224,7 +224,7 @@ let spaceships = [
     {
         ip: "Star Wars",
         name: "Devastator",
-        image: "./img/devastator.png",
+        image: "./img/Devastator.png",
         year: "1977",
         faction: "Galatic Empire",
         sizeLengthMeters: 1600,
