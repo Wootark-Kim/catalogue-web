@@ -1,8 +1,16 @@
 html,
 body {
-  margin: 0;
-  padding: 0;
-  background-color: black;
+    height: 100%; /* setting body as 100% of viewport height - helps to remove that extra dangling space underneath footer*/
+    margin: 0; /* setting it to 0 to remove default margin borders */
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    background-image: url("img/space1.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* fixes the background so it does not "change" regardless of how many cards are displayed */
 }
 
 /*====[HEADER AREA]===================================================================================================*/
@@ -12,7 +20,8 @@ body {
     display: flex;
     justify-content: center;
     flex-direction: column;
-    background-color: black;
+  /* background-color: black; */
+    background-color: rgba(0, 0, 0, 0.7); /* I must use rgba if I want to set opacity of background color */
     padding-bottom: 10px;
 }
 
@@ -57,13 +66,11 @@ body {
     margin: 0px;
     padding: 30px;
     background-color: black;
-
-    /* For space background image settings */
-    background-image: url("img/space.jpg");
-    background-size: cover;
+    background-color: rgba(0, 0, 0, 0); /* setting opacity to 0 so the space image in the background from div body show up */
 }
 
 .card {
+    /* height: clamp(500px, 10vw, 500px); */
     width: 300px;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -96,9 +103,9 @@ body {
 .footer {
   display: flex;
   justify-content: center;
-  /* background-color: rgba(0, 0, 0, 0.3); */
-  background-color: black;
-  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 40px;
+  margin-top: auto;
 }
 
 button {

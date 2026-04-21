@@ -55,6 +55,13 @@
 
 /*
 ====[Image Sources]=====================================================================================================
+
+    [Space background]
+    space1: https://www.pexels.com/photo/stars-in-space-26607691/
+    space2: https://www.pexels.com/photo/stars-1257860/
+    space3: https://www.pexels.com/photo/starry-sky-3279307/
+
+    [Spaceships]
     Callisto: https://i.sstatic.net/D6umk.jpg
     USCSS Nostromo: https://static.wikia.nocookie.net/avp/images/c/c5/Img4.jpg/revision/latest?cb=20131021025529
     USCSS Prometheus: https://www.space.com/15919-prometheus-alien-movie-pictures.html
@@ -79,14 +86,16 @@ let spaceships = [
         name: "USCSS Nostromo",
         image: "./img/usccnostromo.png",
         faction: "Weyland-Yutani Corporation",
-        sizeLengthMeters: 334
+        sizeLengthMeters: 334,
+        saved: false
     },
     {
         ip: "Alien",
         name: "USCSS Prometheus",
         image: "./img/uscss_prometheus.png",
         faction: "Weyland-Yutani Corporation",
-        sizeLengthMeters: 130
+        sizeLengthMeters: 130,
+        saved: false
     },
     {
         ip: "Public Domain",
@@ -208,7 +217,10 @@ function showCards() {
     for (let i = 0; i < filteredShips.length; i++){
         const spaceship = filteredShips[i];
         const nextCard = templateCard.cloneNode(true); // Copy the template card
-        editCardContent(nextCard, spaceship.name, spaceship.image, spaceship.ip, spaceship.faction, spaceship.sizeLengthMeters); // Edit title and image
+
+//        editCardContent(nextCard, spaceship.name, spaceship.image, spaceship.ip, spaceship.faction, spaceship.sizeLengthMeters); // Edit title and image
+        editCardContent(nextCard, spaceship);
+
         cardContainer.appendChild(nextCard); // Add new card to the container
     }
 }
@@ -245,29 +257,50 @@ uniqueIPs.forEach(function(ip) {
 
 //======================================================================================================================
 
-function editCardContent(card, newTitle, newImageURL, newIp, newFaction, newSizeLengthMeters) {
+//function editCardContent(card, newTitle, newImageURL, newIp, newFaction, newSizeLengthMeters) {
+function editCardContent(card, spaceship) {
+
     card.style.display = "block";
 
-    const cardHeader = card.querySelector("h2");
-    cardHeader.textContent = newTitle;
+//    const cardHeader = card.querySelector("h2");
+//    cardHeader.textContent = newTitle;
+//
+//    const cardImage = card.querySelector("img");
+//    cardImage.src = newImageURL;
+//    cardImage.alt = newTitle + " Poster";
+//
+//    const cardIp = card.querySelector("#ip");
+//    cardIp.textContent = "IP: " + newIp;
+//
+//    const cardFaction = card.querySelector("#faction");
+//    cardFaction.textContent = "Faction: " + newFaction;
+//
+//    const cardSizeLengthMeters = card.querySelector("#sizeLengthMeters");
+//    cardSizeLengthMeters.textContent = "Size (length): " + newSizeLengthMeters + " meters";
 
-    const cardImage = card.querySelector("img");
-    cardImage.src = newImageURL;
-    cardImage.alt = newTitle + " Poster";
+    card.querySelector("h2").textContent = spaceship.name;
+    card.querySelector("img").src = spaceship.image;
+    card.querySelector("#ip").textContent = "IP: " + spaceship.ip;
+    card.querySelector("#faction").textContent = "Faction: " + spaceship.faction;
+    card.querySelector("#sizeLengthMeters").textContent = "Size (length): " + spaceship.sizeLengthMeters + " meters";
 
-    const cardIp = card.querySelector("#ip");
-    cardIp.textContent = "IP: " + newIp;
+    // logic for the functionality of the save as favorite button
+    const saveButton = card.querySelector(".save-button");
 
-    const cardFaction = card.querySelector("#faction");
-    cardFaction.textContent = "Faction: " + newFaction;
+    saveButton.addEventListener("click", function() {
+        saveToggle(spaceship);
+        if (spaceship.saved == true) {
+            saveButton.textContent = "Unfavorite";
+        } else {
+            saveButton.textContent = "+";
+        }
+    });
 
-    const cardSizeLengthMeters = card.querySelector("#sizeLengthMeters");
-    cardSizeLengthMeters.textContent = "Size (length): " + newSizeLengthMeters + " meters";
 
     // You can use console.log to help you debug!
     // View the output by right clicking on your website,
     // select "Inspect", then click on the "Console" tab
-    console.log("new card:", newTitle, "- html: ", card);
+//    console.log("new card:", newTitle, "- html: ", card);
 }
 
 // This calls the addCards() function when the page is first loaded
@@ -299,4 +332,8 @@ function sortSmallestToLargest(a,b){
 // used in size filtering
 function sortLargestToSmallest(a,b){
     return b.sizeLengthMeters - a.sizeLengthMeters;
+}
+
+function saveToggle(spaceship){
+    spaceship.saved = !spaceship.saved;
 }
