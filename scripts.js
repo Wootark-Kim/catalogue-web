@@ -41,15 +41,14 @@
 ====[Thought process]===================================================================================================
     Matching each images manually to each titles' element seems awkward. To better scale, I'm going to use an a list
     of objects instead. This way I can just loop through the list without using a bunch of if-else statements. Plus
-    I get to add more object properties if I want to expand more.
+    I get to add more objects and object properties easily if I want to expand more.
 
     Note: Instead of movies, I think I want to do something else. Some ideas:
         - list of resident evil viruses
         - list of fictional spaceships (Warhammer, Star War, Star Trek, Alien series, etc.)
         - list of clothing companies and their origins
 
-    Decision: Spaceships. I can add a space background and it'll give some tangent ideas to practice some javascript
-              shenanigans.
+    Final decision: Spaceships because I can add a space background and that's pretty cool. Heck yeah!
 ========================================================================================================================
 */
 
@@ -193,28 +192,36 @@ function showCards() {
     // relevant for when the user selects an IP and size in the filter drop down menu
     const selectedIP = document.getElementById("selectIP").value;
     const selectedSize = document.getElementById("selectSize").value;
+    const selectedFavorite = document.getElementById("selectFavorite").value;
 
     let filteredShips = spaceships; // making a same reference so I can apply a filter to spaceships later
 
     // filter by IP first
     if (selectedIP !== "show all IPs"){
         // personal note: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter
-        filteredShips = spaceships.filter(function(ship) {
+        filteredShips = filteredShips.filter(function(ship) {
             return ship.ip == selectedIP;
         });
     }
 
+    // next, I can filter by favorite
+    if (selectedFavorite === "Show only favorites") {
+        filteredShips = filteredShips.filter(function(ship){
+            return ship.saved;
+        });
+    }
+
     // next, I can filter by size
-    if (selectedSize == "smallest to largest"){
+    if (selectedSize == "smallest to largest") {
         filteredShips.sort(sortSmallestToLargest);
     }
 
-    if (selectedSize == "largest to smallest"){
+    if (selectedSize == "largest to smallest") {
         filteredShips.sort(sortLargestToSmallest);
     }
 
     // My modified version:
-    for (let i = 0; i < filteredShips.length; i++){
+    for (let i = 0; i < filteredShips.length; i++) {
         const spaceship = filteredShips[i];
         const nextCard = templateCard.cloneNode(true); // Copy the template card
 
@@ -255,8 +262,13 @@ uniqueIPs.forEach(function(ip) {
     select.appendChild(option);
 });
 
-//======================================================================================================================
-
+/*
+====[Thought process]===================================================================================================
+    Why did I commented out "function editCardContent(card, newTitle,...) and rewrote it as shown below?
+    Answer: I'm going to pass the spaceship object itself rather than each individual object properties. This helps to
+            simplify future scaling and make the code less "busy."
+========================================================================================================================
+*/
 //function editCardContent(card, newTitle, newImageURL, newIp, newFaction, newSizeLengthMeters) {
 function editCardContent(card, spaceship) {
 
@@ -278,24 +290,32 @@ function editCardContent(card, spaceship) {
 //    const cardSizeLengthMeters = card.querySelector("#sizeLengthMeters");
 //    cardSizeLengthMeters.textContent = "Size (length): " + newSizeLengthMeters + " meters";
 
+/*
+====[Thought process]===================================================================================================
+    Why did I commented out the code above and rewrote that logic? (as shown by the codeblock below)
+    Answer: Since I am now passing objects themselves rather than each object properties individually, I
+            can now call a spaceship object itself and then call on its object properties (i.e. spaceship.name).
+========================================================================================================================
+*/
     card.querySelector("h2").textContent = spaceship.name;
     card.querySelector("img").src = spaceship.image;
     card.querySelector("#ip").textContent = "IP: " + spaceship.ip;
     card.querySelector("#faction").textContent = "Faction: " + spaceship.faction;
     card.querySelector("#sizeLengthMeters").textContent = "Size (length): " + spaceship.sizeLengthMeters + " meters";
 
-    // logic for the functionality of the save as favorite button
+    // next 12 lines are logic involving the functionality of the save/favorite button
     const saveButton = card.querySelector(".save-button");
-
-    saveButton.addEventListener("click", function() {
-        saveToggle(spaceship);
-        if (spaceship.saved == true) {
-            saveButton.textContent = "Unfavorite";
-        } else {
-            saveButton.textContent = "+";
-        }
-    });
-
+    if (spaceship.saved) {
+        saveButton.textContent = "favorited!";
+    } else {
+        saveButton.textContent = "+";
+    }
+    saveButton.onclick = function() {
+        saveToggle(spaceship); // update the data
+        console.log("saved is now:", spaceship.saved); // for debugging purpose
+        // This will load the new set of cards once the show favorite filter has been chosen
+        showCards();
+    };
 
     // You can use console.log to help you debug!
     // View the output by right clicking on your website,
@@ -311,6 +331,8 @@ document.getElementById("selectIP").addEventListener("change", showCards);
 
 // This will load the new set of cards once a size filter has been chosen
 document.getElementById("selectSize").addEventListener("change", showCards);
+
+document.getElementById("selectFavorite").addEventListener("change", showCards);
 
 function quoteAlert() {
     console.log("Button Clicked!");
