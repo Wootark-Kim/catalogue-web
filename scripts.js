@@ -38,6 +38,38 @@
 //];
 
 /*
+====[Image Sources]=====================================================================================================
+
+    [Space background]
+    space1: https://www.pexels.com/photo/stars-in-space-26607691/
+    space2: https://www.pexels.com/photo/stars-1257860/
+    space3: https://www.pexels.com/photo/starry-sky-3279307/
+
+    [Spaceships]
+    Aeriolus: https://archive.org/details/triptomars00ross/page/84/mode/2up
+    Callisto: https://i.sstatic.net/D6umk.jpg
+    Devastator: https://starwars.fandom.com/wiki/Devastator/Legends?file=ImperialStarDestroyerPainting-SWG.png
+    Executor: https://starwars.fandom.com/wiki/Executor?file=Executor_BF2.png
+    Invincible Reason: https://www.deviantart.com/hexanity/art/The-invincible-reason-Dark-Angels-flagship-1239785624
+    Invisible Hand: https://starwars.fandom.com/wiki/Invisible_Hand?file=InvisibleHandROTS.png
+    ISV: https://cdn.mos.cms.futurecdn.net/SDKY7nw9PAuqXKxi87W6PK-970-80.jpg.webp
+    Macragge's Honor: https://1d6chan.miraheze.org/wiki/Macragge%27s_Honour#/media/File:MacraggesHonourBFG2.jpg
+    Millennium Falcon: https://www.popularmechanics.com/culture/movies/a30210061/history-of-the-millennium-falcon/
+    Razor Crest: https://jediinsider.com/275-24178#gsc.tab=0
+    USCSS Nostromo: https://static.wikia.nocookie.net/avp/images/c/c5/Img4.jpg/revision/latest?cb=20131021025529
+    USCSS Prometheus: https://www.space.com/15919-prometheus-alien-movie-pictures.html
+    USG Ishimura: https://www.reddit.com/media?url=https%3A%2F%2Fi.redd.it%2Flefu1g2o4eja1.jpg
+    USM Auriga: https://avp.fandom.com/wiki/USM_Auriga?file=Auriga96.jpg
+    USM Valor: https://deadspace.fandom.com/wiki/USM_Valor?file=DSR_USM_Valor.jpg
+    USS Defiant: https://www.giantfreakinrobot.com/wp-content/uploads/2022/10/defiant.jpeg
+    USS Enterprise: https://sm.ign.com/ign_nordic/news/s/scientists/scientists-break-down-how-they-could-theoretically-build-sta_9dva.jpg
+    USS Excelsior: https://pwimages-a.akamaihd.net/arc/1c/55/1c550b61a35ca076851cc7275a8296fd1611790878.png
+    USS Sulaco: https://replicant2019.artstation.com/projects/L3gJbv
+    USS Voyager: https://www.giantfreakinrobot.com/wp-content/uploads/2023/03/voyagerbright-edited.jpg
+========================================================================================================================
+*/
+
+/*
 ====[Thought process]===================================================================================================
     Matching each images manually to each titles' element seems awkward. To better scale, I'm going to use an a list
     of objects instead. This way I can just loop through the list without using a bunch of if-else statements. Plus
@@ -51,32 +83,6 @@
     Final decision: Spaceships because I can add a space background and that's pretty cool. Heck yeah!
 ========================================================================================================================
 */
-
-/*
-====[Image Sources]=====================================================================================================
-
-    [Space background]
-    space1: https://www.pexels.com/photo/stars-in-space-26607691/
-    space2: https://www.pexels.com/photo/stars-1257860/
-    space3: https://www.pexels.com/photo/starry-sky-3279307/
-
-    [Spaceships]
-    Callisto: https://i.sstatic.net/D6umk.jpg
-    USCSS Nostromo: https://static.wikia.nocookie.net/avp/images/c/c5/Img4.jpg/revision/latest?cb=20131021025529
-    USCSS Prometheus: https://www.space.com/15919-prometheus-alien-movie-pictures.html
-    USG Ishimura: https://www.reddit.com/media?url=https%3A%2F%2Fi.redd.it%2Flefu1g2o4eja1.jpg
-    USM Valor: https://deadspace.fandom.com/wiki/USM_Valor?file=DSR_USM_Valor.jpg
-    Macragge's Honor: https://1d6chan.miraheze.org/wiki/Macragge%27s_Honour#/media/File:MacraggesHonourBFG2.jpg
-    Invincible Reason: https://www.deviantart.com/hexanity/art/The-invincible-reason-Dark-Angels-flagship-1239785624
-    Millennium Falcon: https://www.popularmechanics.com/culture/movies/a30210061/history-of-the-millennium-falcon/
-    Razor Crest: https://jediinsider.com/275-24178#gsc.tab=0
-    Executor: https://starwars.fandom.com/wiki/Executor?file=Executor_BF2.png
-    Invisible Hand: https://starwars.fandom.com/wiki/Invisible_Hand?file=InvisibleHandROTS.png
-    The Aeriolus: https://archive.org/details/triptomars00ross/page/84/mode/2up
-    ISV: https://cdn.mos.cms.futurecdn.net/SDKY7nw9PAuqXKxi87W6PK-970-80.jpg.webp
-========================================================================================================================
-*/
-
 
 // Creating a list/array of objects of spaceships
 let spaceships = [
@@ -97,81 +103,148 @@ let spaceships = [
         saved: false
     },
     {
+        ip: "Alien",
+        name: "USM Auriga",
+        image: "./img/usm_auriga.png",
+        faction: "United Systems Military (U.S.M.)",
+        sizeLengthMeters: 3658,
+        saved: false
+    },
+    {
+        ip: "Alien",
+        name: "USS Sulaco",
+        image: "./img/uss_sulaco.png",
+        faction: "United States Colonial Marine Corps",
+        sizeLengthMeters: 385,
+        saved: false
+    },
+    {
         ip: "Public Domain",
         name: "Aeriolus",
         image: "./img/the_aeriolus.png",
         faction: "Rubeus and Marchy",
-        sizeLengthMeters: 100
+        sizeLengthMeters: 100,
+        saved: false
     },
     {
         ip: "Public Domain",
         name: "Callisto",
         image: "./img/callisto.png",
         faction: "Unified Earth Government",
-        sizeLengthMeters: 80
+        sizeLengthMeters: 80,
+        saved: false
     },
     {
         ip: "Dead Space",
         name: "USG Ishimura",
         image: "./img/usg_ishimura.png",
         faction: "Concordance Extraction Corporation",
-        sizeLengthMeters: 1600
+        sizeLengthMeters: 1600,
+        saved: false
     },
     {
         ip: "Dead Space",
         name: "USM Valor",
         image: "./img/usm_valor.png",
         faction: "Earth Government Colonial Alliance",
-        sizeLengthMeters: 320
+        sizeLengthMeters: 320,
+        saved: false
     },
     {
         ip: "Avatar",
         name: "Interstellar Vehicle Venture Star (ISV)",
         image: "./img/isv.png",
         faction: "Resources Development Administration",
-        sizeLengthMeters: 330
+        sizeLengthMeters: 330,
+        saved: false
     },
     {
         ip: "Warhammer 40k",
         name: "Macragge's Honor",
         image: "./img/macragge_honour.png",
         faction: "Ultramarines",
-        sizeLengthMeters: 26000
+        sizeLengthMeters: 26000,
+        saved: false
     },
     {
         ip: "Warhammer 40k",
         name: "Invincible Reason",
         image: "./img/invincible_reason.png",
         faction: "Dark Angels",
-        sizeLengthMeters: 28000
+        sizeLengthMeters: 28000,
+        saved: false
+    },
+    {
+        ip: "Star Trek",
+        name: "USS Defiant",
+        image: "./img/uss_defiant.png",
+        faction: "United Federation of Planets",
+        sizeLengthMeters: 170,
+        saved: false
+    },
+    {
+        ip: "Star Trek",
+        name: "USS Enterprise",
+        image: "./img/uss_enterprise.png",
+        faction: "United Federation of Planets",
+        sizeLengthMeters: 342,
+        saved: false
+    },
+    {
+        ip: "Star Trek",
+        name: "USS Excelsior",
+        image: "./img/uss_excelsior.png",
+        faction: "United Federation of Planets",
+        sizeLengthMeters: 467,
+        saved: false
+    },
+    {
+        ip: "Star Trek",
+        name: "USS Voyager",
+        image: "./img/uss_voyager.png",
+        faction: "United Federation of Planets",
+        sizeLengthMeters: 344,
+        saved: false
+    },
+    {
+        ip: "Star Wars",
+        name: "Devastator",
+        image: "./img/devastator.png",
+        faction: "Galatic Empire",
+        sizeLengthMeters: 1600,
+        saved: false
     },
     {
         ip: "Star Wars",
         name: "Millennium Falcon",
         image: "./img/millennium_falcon.png",
         faction: "Rebel Alliance",
-        sizeLengthMeters: 34.75
+        sizeLengthMeters: 34.75,
+        saved: false
     },
     {
         ip: "Star Wars",
         name: "Razor Crest",
         image: "./img/razor_crest.png",
         faction: "Rebel Alliance",
-        sizeLengthMeters: 24.27
+        sizeLengthMeters: 24.27,
+        saved: false
     },
     {
         ip: "Star Wars",
         name: "Executor",
         image: "./img/executor.png",
         faction: "Galatic Empire",
-        sizeLengthMeters: 19000
+        sizeLengthMeters: 19000,
+        saved: false
     },
     {
         ip: "Star Wars",
         name: "Invisible Hand",
         image: "./img/invisible_hand.png",
         faction: "Confederacy of Independent Systems",
-        sizeLengthMeters: 1088
+        sizeLengthMeters: 1088,
+        saved: false
     }
 ]
 
@@ -334,18 +407,6 @@ document.getElementById("selectSize").addEventListener("change", showCards);
 
 document.getElementById("selectFavorite").addEventListener("change", showCards);
 
-function quoteAlert() {
-    console.log("Button Clicked!");
-    alert(
-    "I guess I can kiss heaven goodbye, because it got to be a sin to look this good!",
-    );
-}
-
-function removeLastCard() {
-    spaceships.pop(); // Remove last item in titles array
-    showCards(); // Call showCards again to refresh
-}
-
 // used in size filtering
 function sortSmallestToLargest(a,b){
     return a.sizeLengthMeters - b.sizeLengthMeters;
@@ -359,3 +420,15 @@ function sortLargestToSmallest(a,b){
 function saveToggle(spaceship){
     spaceship.saved = !spaceship.saved;
 }
+
+const creditButton = document.getElementById("credit-button");
+const closeCreditButton = document.getElementById("close-pop-up");
+const popUp = document.getElementById("pop-up");
+
+creditButton.addEventListener("click", function() {
+    popUp.style.display = "block";
+});
+
+closeCreditButton.addEventListener("click", function(){
+    popUp.style.display = "none";
+});
